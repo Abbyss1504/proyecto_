@@ -1,0 +1,32 @@
+{% extends "./base.html" %}
+
+{% block title %} Productos en almacen {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar producto</h2>
+        <div class="card border-dark rounded">
+            <div class="card-body">
+                <form action="/editarCurso/" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="txtId" name="txtId" value="{{curso.codigo}}" class="form-control" placeholder="Código"
+                            minlength="1" maxlength="50" readonly required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtName" name="txtName" value="{{curso.nombre}}" class="form-control" placeholder="Nombre"
+                            maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="numCantidad" name="numCantidad" value="{{curso.creditos}}" class="form-control" min="1" max="9"
+                            value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark btn-block text-white">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
